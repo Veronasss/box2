@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Galeria + Carrossel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #f9f9f9;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .galeria img {
+      width: 200px;
+      height: auto;
+      border: 2px solid #ddd;
+      border-radius: 4px;
+      transition: transform 0.2s;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+      border-color: #aaa;
+    }
+
+    .carrossel {
+      max-width: 600px;
+      margin: 40px auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .carrossel img {
+      width: 100%;
+      display: none;
+    }
+
+    .carrossel img.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Galeria de Imagens</h2>
+  <div class="galeria">
+    <!-- Imagens de 1a a 12a -->
+    <img src="images/1a.jpg" alt="Imagem 1a">
+    <img src="images/2a.jpg" alt="Imagem 2a">
+    <img src="images/3a.jpg" alt="Imagem 3a">
+    <img src="images/4a.jpg" alt="Imagem 4a">
+    <img src="images/5a.jpg" alt="Imagem 5a">
+    <img src="images/6a.jpg" alt="Imagem 6a">
+    <img src="images/7a.jpg" alt="Imagem 7a">
+    <img src="images/8a.jpg" alt="Imagem 8a">
+    <img src="images/9a.jpg" alt="Imagem 9a">
+    <img src="images/10a.jpg" alt="Imagem 10a">
+    <img src="images/11a.jpg" alt="Imagem 11a">
+    <img src="images/12a.jpg" alt="Imagem 12a">
+  </div>
+
+  <h2>Carrossel Automático</h2>
+  <div class="carrossel" id="carrossel">
+    <img src="images/carrossel1.jpg" alt="Carrossel 1" class="active">
+    <img src="images/carrossel2.jpg" alt="Carrossel 2">
+    <img src="images/carrossel3.jpg" alt="Carrossel 3">
+  </div>
+
+  <script>
+    // Carrossel simples em JavaScript
+    const slides = document.querySelectorAll('#carrossel img');
+    let currentIndex = 0;
+
+    setInterval(() => {
+      slides[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % slides.length;
+      slides[currentIndex].classList.add('active');
+    }, 3000); // muda a cada 3 segundos
+  </script>
+
+</body>
+</html>
